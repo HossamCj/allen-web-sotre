@@ -125,4 +125,5 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 
-ALLOWED_HOSTS = ['.heroku.com',]
+ALLOWED_HOSTS = ['allen-web-store.herokuapp.com',]
+
