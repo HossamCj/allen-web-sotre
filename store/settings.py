@@ -127,3 +127,4 @@ STATIC_URL = '/static/'
 
 ALLOWED_HOSTS = ['allen-web-store.herokuapp.com',]
 
+
