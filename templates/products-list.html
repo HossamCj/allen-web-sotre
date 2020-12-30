@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>Products</title>
+    </head>
+    <body>
+        <h2>Products list:</h2>
+        <ul>
+            {% for product in products %}
+                <a href="{% url 'product_details' product.pk %}">
+                    <li>{{ product.title }}</li>
+                </a>
+            {% empty %}
+                <p>No products yet, try later.</p>
+            {% endfor %}
+        </ul>
+    </body>
+</html>
