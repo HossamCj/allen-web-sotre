@@ -8,9 +8,11 @@
         <h2>Products list:</h2>
         <ul>
             {% for product in products %}
-                <a href="{% url 'product_details' product.pk %}">
-                    <li>{{ product.title }}</li>
-                </a>
+                <li>Brand: {{ product.brand }}</li>
+                    <a href="{% url 'product_details' product.pk %}">
+                        <h4>{{ product.title }}</h4>
+                    </a>
+                <p>{{ product.price }} $</p>
             {% empty %}
                 <p>No products yet, try later.</p>
             {% endfor %}

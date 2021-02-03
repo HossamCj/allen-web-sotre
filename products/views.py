@@ -12,3 +12,19 @@ def product_details(request, pk):
     product = get_object_or_404(Product, pk=pk)
     context = {'product': product}
     return render(request, 'products/product-details.html', context)
+
+
+def product_add(request):
+    if request.method == 'POST':
+       brand = request.POST['brand']
+       title = request.POST['title']
+       description = request.POST['description']
+       price = request.POST['price']
+
+       product = Product(brand=brand, title=title, description=description, price=price)
+       product.save()
+
+       return render(request, 'products/successful-adding.html')
+
+    else:
+        return render(request, 'products/product-add.html')
