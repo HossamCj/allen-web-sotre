@@ -2,6 +2,9 @@ from django.shortcuts import render, get_object_or_404
 
 from .models import Product
 
+from .forms import AddProductForm
+
+
 def products_list(request):
     products = Product.objects.all()
     context = {'products': products}
@@ -16,15 +19,12 @@ def product_details(request, pk):
 
 def product_add(request):
     if request.method == 'POST':
-       brand = request.POST['brand']
-       title = request.POST['title']
-       description = request.POST['description']
-       price = request.POST['price']
+       form = AddProductForm(request.POST)
 
-       product = Product(brand=brand, title=title, description=description, price=price)
-       product.save()
-
-       return render(request, 'products/successful-adding.html')
-
+       if form.is_valid():
+           form.save()
+           return render(request, 'products/successful-adding.html')
     else:
-        return render(request, 'products/product-add.html')
+        form = AddProductForm()
+
+    return render(request, 'products/product-add.html', {'form': form})
