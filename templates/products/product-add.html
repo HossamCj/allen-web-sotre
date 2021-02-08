@@ -5,6 +5,10 @@
         <title>Add Product</title>
     </head>
     <body>
+
+        <a href="{% url 'products_list' %}">Back to products list ! </a>
+
+
         <!-- Creating form to add products from Client Side -->
         <form action="" method="POST">
             {% csrf_token %}

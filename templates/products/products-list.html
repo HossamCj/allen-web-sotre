@@ -5,6 +5,9 @@
         <title>Products</title>
     </head>
     <body>
+
+        <a href="{% url 'product_add' %}" >Add Product</a>
+
         <h2>Products list:</h2>
         <ul>
             {% for product in products %}
