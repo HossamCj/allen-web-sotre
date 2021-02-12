@@ -13,6 +13,7 @@
             <h2>{{ product.title }}</h2>
             <p>{{ product.description }}</p>
             <div>{{ product.price }} $</div>
+            <img src="{{ product.image.url }}">
             <div>
                 <a href="{% url 'product_edit' product.pk%}">Edit</a>
             </div>

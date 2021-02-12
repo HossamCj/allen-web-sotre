@@ -8,6 +8,7 @@ class Product(models.Model):
     brand = models.CharField(max_length=124)
     price = models.PositiveIntegerField()
     created_at = models.DateTimeField(auto_now=True)
+    image = models.ImageField(upload_to='products/', null=True)
 
     def get_absolute_url(self):
         return reverse('product_details', args=(self.id,))

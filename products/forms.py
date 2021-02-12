@@ -10,5 +10,6 @@ class AddProductForm(ModelForm):
             'title',
             'brand',
             'description',
-            'price'
+            'price',
+            'image'
         )
