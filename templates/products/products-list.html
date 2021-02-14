@@ -1,24 +1,22 @@
-<!DOCTYPE html>
-<html lang="en">
-    <head>
-        <meta charset="UTF-8">
-        <title>Products</title>
-    </head>
-    <body>
+{% extends 'base.html' %}
 
-        <a href="{% url 'product_add' %}" >Add Product</a>
+{% block title %}Products{% endblock %}
 
-        <h2>Products list:</h2>
-        <ul>
-            {% for product in products %}
-                <li>Brand: {{ product.brand }}</li>
-                    <a href="{% url 'product_details' product.pk %}">
-                        <h4>{{ product.title }}</h4>
-                    </a>
-                <p>{{ product.price }} $</p>
-            {% empty %}
-                <p>No products yet, try later.</p>
-            {% endfor %}
-        </ul>
-    </body>
-</html>
+
+{% block content %}
+    <a href="{% url 'product_add' %}" >Add Product</a>
+
+    <h2>Products list:</h2>
+    <ul>
+        {% for product in products %}
+            <li>Brand: {{ product.brand }}</li>
+                <a href="{% url 'product_details' product.pk %}">
+                    <h4>{{ product.title }}</h4>
+                </a>
+            <p>{{ product.price }} $</p>
+        {% empty %}
+            <p>No products yet, try later.</p>
+        {% endfor %}
+    </ul>
+{% endblock %}
+
