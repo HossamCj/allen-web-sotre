@@ -1,22 +1,17 @@
-<!DOCTYPE html>
-<html lang="en">
-    <head>
-        <meta charset="UTF-8">
-        <title>Product details</title>
-    </head>
-    <body>
-        <h2>
-            <a href="{% url 'products_list' %}">Products</a>
-        </h2>
-        <section>
-            <div>{{ product.brand }}</div>
-            <h2>{{ product.title }}</h2>
-            <p>{{ product.description }}</p>
-            <div>{{ product.price }} $</div>
-            <img src="{{ product.image.url }}">
-            <div>
-                <a href="{% url 'product_edit' product.pk%}">Edit</a>
-            </div>
-        </section>
-    </body>
-</html>
+{% extends 'base.html' %}
+
+{% block content %}
+    <h2>
+        <a href="{% url 'products_list' %}">Products</a>
+    </h2>
+    <section>
+        <div>{{ product.brand }}</div>
+        <h2>{{ product.title }}</h2>
+        <p>{{ product.description }}</p>
+        <div>{{ product.price }} $</div>
+        <img src="{{ product.image.url }}">
+        <div>
+            <a href="{% url 'product_edit' product.pk%}">Edit</a>
+        </div>
+    </section>
+{% endblock %}
