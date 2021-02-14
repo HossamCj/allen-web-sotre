@@ -1,15 +1,21 @@
-{% extends 'base.html' %}
+{% extends "base.html" %}
 
-{% block title %}Add Product{% endblock %}
+{% block title %}Add/Edit Product{% endblock %}
 
 {% block content %}
-    <a href="{% url 'products_list' %}">Back to products list ! </a>
-
-    <!-- Creating form to add products from Client Side -->
-    <form action="" method="POST" enctype="multipart/form-data">
-        {% csrf_token %}
-        {{ form.as_p }}
-
-        <input type="submit" value="Add Product">
-    </form>
+    <section class="form-section">
+        <h2 class="section-headline">Add/Edit Product</h2>
+        <p class="section-description">
+            Please fill in your email to reset your password.
+        </p>
+        <div class="form">
+            <form action="" method="post" enctype="multipart/form-data">
+                {% csrf_token %}
+                {{ form.as_p }}
+                <p>
+                    <button type="submit">Save</button>
+                </p>
+            </form>
+        </div>
+    </section>
 {% endblock %}

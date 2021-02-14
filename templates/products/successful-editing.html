@@ -3,7 +3,10 @@
 {% block title %}Successful Editing {% endblock %}
 
 {% block content %}
-    <div>
-        <h2>Edit Successful, you can check it from <a href="{% url 'products_list' %}">Products list</a>.</h2>
-    </div>
+    <section>
+        <div>
+            <h1 class="section-headline">Product edited Successfully!</h1>
+            <a class="back" href="{% url 'home' %}">Continue to products list</a>
+        </div>
+    </section>
 {% endblock %}
