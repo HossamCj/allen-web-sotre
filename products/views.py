@@ -7,8 +7,9 @@ from .forms import AddProductForm
 
 def products_list(request):
     products = Product.objects.all()
-    context = {'products': products}
-    return render(request, 'products/products-list.html', context)
+    return render(request, "products/products-list.html", {"products": products})
+
+
 
 
 def product_details(request, pk):
@@ -27,7 +28,7 @@ def product_add(request):
     else:
         form = AddProductForm()
 
-    return render(request, 'products/product-add.html', {'form': form})
+    return render(request, "products/product-add.html", {'form': form})
 
 
 def product_edit(request, pk):
@@ -43,13 +44,3 @@ def product_edit(request, pk):
         form = AddProductForm(instance=product)
 
     return render(request, 'products/product-add.html', {'form': form})
-
-
-
-
-
-
-
-
-
-
