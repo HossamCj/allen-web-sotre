@@ -1,4 +1,5 @@
 from django.shortcuts import render, get_object_or_404
+from django.contrib.auth.decorators import login_required
 
 from .models import Product
 
@@ -10,14 +11,12 @@ def products_list(request):
     return render(request, "products/products-list.html", {"products": products})
 
 
-
-
 def product_details(request, pk):
     product = get_object_or_404(Product, pk=pk)
     context = {'product': product}
     return render(request, 'products/product-details.html', context)
 
-
+@login_required
 def product_add(request):
     if request.method == 'POST':
        form = AddProductForm(request.POST, request.FILES)
