@@ -135,4 +135,4 @@ STATICFILES_DIRS = [
 MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
-# ALLOWED_HOSTS = ['allen-web-store.herokuapp.com',]
+ALLOWED_HOSTS = ['allen-web-store.herokuapp.com',]

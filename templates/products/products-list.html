@@ -5,9 +5,11 @@
 {% block content %}
     <section id="featured-products">
 
-        <div>
-            <a href="{% url 'product_add' %}" class="back">ADD PRODUCT</a>
-        </div>
+        {% if user.is_superuser %}
+            <div>
+                <a href="{% url 'product_add' %}" class="back">ADD PRODUCT</a>
+            </div>
+        {% endif %}
 
         <h2 class="section-headline">Featured Products</h2>
         <p class="section-description">

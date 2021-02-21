@@ -17,6 +17,8 @@
         </div>
     </section>
     <div>
-        <a href="{% url 'product_edit' product.pk %}" class="back">Edit</a>
+        {% if user.is_superuser %}
+            <a href="{% url 'product_edit' product.pk %}" class="back">Edit</a>
+        {% endif %}
     </div>
 {% endblock %}
