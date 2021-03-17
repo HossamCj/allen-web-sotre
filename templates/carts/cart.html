@@ -7,15 +7,21 @@
         {% for product in products %}
             <li>
                 <a href="{% url 'product_details' product.pk %}">{{ product.title | capfirst }}</a>
+                <br>
                 <div>
                     ( <a href="{% url 'remove_from_cart' product_id=product.id %}">Remove</a> )
                 </div>
             </li>
+            <br>
         {% empty %}
             <h3>Your cart is empty!</h3>
         {% endfor %}
 
         {% if products.exists %}
+            {% if total_price.price__sum > 0 %}
+                <h3>Total price</h3>
+                <p>$ {{ total_price.price__sum | floatformat:2 }}</p>
+            {% endif %}
             <hr>
             <a href="{% url 'remove_all_from_cart' %}">Remove all</a>
         {% endif %}
