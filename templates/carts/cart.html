@@ -1,10 +1,25 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <title>$Title$</title>
-</head>
-<body>
-$END$
-</body>
-</html>
+{% extends 'base.html' %}
+
+{% block title %}Cart{% endblock %}
+
+{% block content %}
+    <ul>
+        {% for product in products %}
+            <li>
+                <a href="{% url 'product_details' product.pk %}">{{ product.title | capfirst }}</a>
+                <div>
+                    ( <a href="{% url 'remove_from_cart' product_id=product.id %}">Remove</a> )
+                </div>
+            </li>
+        {% empty %}
+            <h3>Your cart is empty!</h3>
+        {% endfor %}
+
+        {% if products.exists %}
+            <hr>
+            <a href="{% url 'remove_all_from_cart' %}">Remove all</a>
+        {% endif %}
+
+
+    </ul>
+{% endblock %}
