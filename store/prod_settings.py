@@ -5,7 +5,7 @@ from .settings import *
 
 SECRET_KEY = os.environ.get('SECRET_KEY')
 
-DEBUG = False
+# DEBUG = False
 
 ALLOWED_HOSTS = ['allen-web-store.herokuapp.com']
 
