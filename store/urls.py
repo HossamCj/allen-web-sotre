@@ -31,8 +31,4 @@ urlpatterns = [
     path('', include('products.urls')),
     path('', include('accounts.urls')),
     path('', include('carts.urls')),
-]
-
-if settings.DEBUG:
-
-    urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
