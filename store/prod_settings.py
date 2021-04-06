@@ -17,6 +17,8 @@
 
 import os
 from .settings import *
+import dj_database_url
+
 
 
 SECRET_KEY = os.environ.get('SECRET_KEY')
@@ -25,3 +27,8 @@ DEBUG = True
 
 ALLOWED_HOSTS = ['web-store1.herokuapp.com',]
 
+
+
+DATABASES = {
+    'default': dj_database_url.config(os.environ.get('DATABASE_URL'))
+}
