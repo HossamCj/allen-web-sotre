@@ -1,7 +1,6 @@
 from django.shortcuts import render, get_object_or_404, redirect
 
 from .models import Product
-
 from .forms import AddProductForm
 
 
@@ -26,11 +25,9 @@ def product_add(request):
                return render(request, 'products/successful-adding.html')
         else:
             form = AddProductForm()
-
         return render(request, "products/product-add.html", {'form': form})
     else:
         return redirect('products_list')
-
 
 
 def product_edit(request, pk):
