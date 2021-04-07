@@ -25,7 +25,7 @@ SECRET_KEY = os.environ.get('SECRET_KEY')
 
 DEBUG = False
 
-ALLOWED_HOSTS = ['web-store1.herokuapp.com',]
+ALLOWED_HOSTS = ['web-store1.herokuapp.com', 'hossamcj.pythonanywhere.com',]
 
 DATABASES = {
     'default': dj_database_url.config(default=os.environ.get('DATABASE_URL'))
